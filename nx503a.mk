@@ -196,6 +196,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_PACKAGES += \
     power.msm8974
 
+# LibPower
+PRODUCT_PACKAGES += \
+    power.qcom
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/etc/powerprofile.sh:system/bin/powerprofile.sh
 
