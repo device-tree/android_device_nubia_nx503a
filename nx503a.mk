@@ -347,7 +347,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/etc/telephony/NX513J_Z78-1.xml:system/etc/telephony/NX513J_Z78-1.xml
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=/vendor/lib/libqc-opt.so
+    ro.vendor.extension_library=/vendor/lib/libqc-opt.so \
+    persist.radio.apm_sim_not_pwdn=1
 
 # Disable QC Oem Hook
 PRODUCT_PROPERTY_OVERRIDES += \
