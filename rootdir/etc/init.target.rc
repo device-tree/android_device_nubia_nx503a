@@ -39,7 +39,7 @@ on post-fs
 
 on fs
     mount_all fstab.qcom
-	
+    restorecon /persist
 
 #ADD by wuzehui for the custom file-system
     wait /dev/block/platform/msm_sdcc.1/by-name/customfs
@@ -53,7 +53,6 @@ on fs
 
     write /sys/kernel/boot_adsp/boot 1
     setprop qcom.audio.init complete
-    
 
 on post-fs-data
     mkdir /data/tombstones 0771 system system
