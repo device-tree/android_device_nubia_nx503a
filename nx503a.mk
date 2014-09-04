@@ -103,6 +103,10 @@ PRODUCT_PACKAGES += \
     camera.msm8974 \
     Camera2
 
+# Camera2 API
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    camera2.portability.force_api=1
+
 # Connectivity Engine support
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
