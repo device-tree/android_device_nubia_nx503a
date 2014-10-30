@@ -407,6 +407,9 @@ on post-fs-data
     # fixed permissions for qrngd
     chmod 664 /dev/hw_random
 
+    # Create directory for TZ Apps
+    mkdir /data/misc/qsee 0770 system system
+
     # we will remap this as /mnt/sdcard with the sdcard fuse tool
     mkdir /data/misc/camera 0770 camera camera
 
