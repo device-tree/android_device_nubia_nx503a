@@ -117,20 +117,14 @@ BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 
-# Enables Adreno RS driver
+# Graphics
 BOARD_EGL_CFG := $(LOCAL_PATH)/etc/egl.cfg
 USE_OPENGL_RENDERER := true
-#NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
-TARGET_USES_C2D_COMPOSITION := true
-#TARGET_GRALLOC_USES_ASHMEM := false
 TARGET_USES_ION := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-HAVE_ADRENO_SOURCE:= false
+HAVE_ADRENO_SOURCE := false
 VSYNC_EVENT_PHASE_OFFSET_NS := 7500000
 SF_VSYNC_EVENT_PHASE_OFFSET_NS := 5000000
-TARGET_USES_QCOM_BSP := true
-
-#TARGET_USE_ION_COMPAT := true
 
 # Shader cache config options
 # Maximum size of the  GLES Shaders that can be cached for reuse.
