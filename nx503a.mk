@@ -350,6 +350,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/vendor/lib/libqc-opt.so \
     persist.radio.apm_sim_not_pwdn=1
 
+# CDMA
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.ril.force_eri_from_xml=true
+
 # Disable QC Oem Hook
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.oem_socket=false
