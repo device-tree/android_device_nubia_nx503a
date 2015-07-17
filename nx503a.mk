@@ -345,6 +345,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.oem_socket=false
 
+# Force dex2oat not to use swap file
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-swap=false
+
 # Support for graceful UICC Vltg supply deact
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.qcril_uim_vcc_feature=1
