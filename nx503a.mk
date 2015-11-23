@@ -357,6 +357,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.no_wait_for_card=1
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.heapminfree=2m
+
 # Z5S/H213
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.ftm_enabled=true \
