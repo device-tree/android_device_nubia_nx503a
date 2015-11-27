@@ -173,7 +173,6 @@ PRODUCT_COPY_FILES += \
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
-    libdashplayer \
     libdivxdrmdecrypt \
     libOmxAacEnc \
     libOmxAmrEnc \
@@ -186,11 +185,7 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libmm-omxcore \
     libHevcSwDecoder \
-    libstagefrighthw \
-    qcmediaplayer
-
-PRODUCT_BOOT_JARS += \
-    qcmediaplayer
+    libstagefrighthw
 
 # Power
 PRODUCT_PACKAGES += \
