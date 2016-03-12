@@ -17,11 +17,11 @@
 import common
 
 def Thanks(self):
-    self.script.AppendExtra('ui_print("===========================================");')
-    self.script.AppendExtra('ui_print("                  Mokee 5.1");')
-    self.script.AppendExtra('ui_print("===========================================");')
-    self.script.AppendExtra('ui_print("    Author : ZJL");')
-    self.script.AppendExtra('ui_print("===========================================");')
+	self.script.AppendExtra('ui_print("=============================================");')
+	self.script.AppendExtra('ui_print("     ROM based Lollipop 5.1.1 by BambooIV    ");')
+	self.script.AppendExtra('ui_print("                   Thanks:                   ");')
+	self.script.AppendExtra('ui_print("            syhost,gentu,xiaognol            ");')
+	self.script.AppendExtra('ui_print("=============================================");')
 
 def FullOTA_Assertions(self):
     Thanks(self)

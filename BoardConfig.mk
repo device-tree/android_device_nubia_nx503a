@@ -14,13 +14,15 @@
 # limitations under the License.
 
 # inherit from the proprietary version
--include vendor/zte/nx503a/BoardConfigVendor.mk
+-include vendor/nubia/nx503a/BoardConfigVendor.mk
 
-LOCAL_PATH := device/zte/nx503a
+LOCAL_PATH := device/nubia/nx503a
+
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Thanks list
-TARGET_RELEASETOOLS_EXTENSIONS 	:= device/zte/nx503a
-TARGET_SPECIFIC_HEADER_PATH := device/zte/nx503a/include
+TARGET_RELEASETOOLS_EXTENSIONS 	:= device/nubia/nx503a
+
 #Disable memcpy_base.S optimization
 TARGET_CPU_MEMCPY_BASE_OPT_DISABLE := true
 
@@ -31,12 +33,10 @@ SIM_COUNT := 1
 #TARGET_GLOBAL_CPPFLAGS += -DANDROID_MULTI_SIM
 BOARD_PROVIDES_LIBRIL :=true
 
-
 COMMON_GLOBAL_CFLAGS += -DQCOM_MEDIA_DISABLE_BUFFER_SIZE_CHECK
 
 # Assert
-TARGET_OTA_ASSERT_DEVICE := nx503a,j507NX,nx507J,nx503a,NX507j,z7mini,nx507_mini,nx507,NX503A
-TARGET_RELEASETOOLS_EXTENSIONS := device/zte/nx503a/releasetools
+TARGET_OTA_ASSERT_DEVICE := NX503A,nx503a,Z5S,z5s,NX503AJ,nx503aj,Z5SN,z5sn
 
 # Partitions
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
@@ -56,23 +56,19 @@ TARGET_NO_RADIOIMAGE := true
 # Platform
 TARGET_BOARD_PLATFORM := msm8974
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno330
-TARGET_BOOTLOADER_BOARD_NAME := MSM8974
-TARGET_BOOTLOADER_NAME := nubia
-TARGET_BOARD_INFO_FILE := device/zte/nx503a/board-info.txt
+TARGET_BOARD_INFO_FILE := $(LOCAL_PATH)/board-info.txt
 
-# Keylayout
-PRODUCT_COPY_FILES := $(filter-out frameworks/base/data/keyboards/Generic.kl:system/usr/keylayout/Generic.kl , $(PRODUCT_COPY_FILES))
 # Architecture
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
-TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := krait
-ARCH_ARM_HAVE_ARMV7A := true
-ARCH_ARM_HAVE_NEON := true
-ARCH_ARM_HAVE_TLS_REGISTER := true
-ARCH_ARM_HAVE_VFP := true
+#ARCH_ARM_HAVE_ARMV7A := true
+#ARCH_ARM_HAVE_NEON := true
+#ARCH_ARM_HAVE_TLS_REGISTER := true
+#ARCH_ARM_HAVE_VFP := true
+TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
@@ -80,7 +76,6 @@ TARGET_GLOBAL_CPPFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
 COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
 COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
 
-DTS_NAME := msm8974-v2.2-mtp-NX503A
 # Krait optimizations
 TARGET_USE_KRAIT_BIONIC_OPTIMIZATION:= true
 TARGET_USE_KRAIT_PLD_SET := true
@@ -96,10 +91,11 @@ BOARD_KERNEL_SEPARATED_DT := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x2000000 --tags_offset 0x01E00000 
-TARGET_KERNEL_SOURCE := kernel/zte/nx503a
+TARGET_KERNEL_SOURCE := kernel/nubia/nx503a
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_CONFIG := msm8974-NX503A_defconfig
 TARGET_ZTEMT_DTS := true
+DTS_NAME := msm8974-v2.2-mtp-NX503A
 
 # Power
 TARGET_POWERHAL_VARIANT := qcom
@@ -119,7 +115,7 @@ BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
-BOARD_BLUEDROID_VENDOR_CONF := device/zte/nx503a/bluetooth/libbt_vndcfg.txt
+BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 
 # Enables Adreno RS driver
 BOARD_EGL_CFG := $(LOCAL_PATH)/etc/egl.cfg
@@ -160,8 +156,8 @@ TARGET_PROVIDES_CAMERA_HAL := true
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 TARGET_NO_RPC := true
 
-# MKHW
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/mkhw/
+# Hardware tunables framework
+BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
 
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
@@ -180,12 +176,10 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_USES_QCOM_HARDWARE := true
 BOARD_USES_QC_TIME_SERVICES := true
 USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
+
 # Vendor init
 TARGET_INIT_VENDOR_LIB := libinit_msm
-TARGET_LIBINIT_DEFINES_FILE := device/zte/nx503a/init/init_nubia.c
-# Vold
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
-BOARD_VOLD_MAX_PARTITIONS := 23
+TARGET_LIBINIT_DEFINES_FILE := $(LOCAL_PATH)/init/init_nubia.c
 
 # Wifi
 BOARD_NO_WIFI_HAL := true
@@ -210,11 +204,11 @@ TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS := true
 
+# dex-preoptimization to speed up first boot sequence
+WITH_DEXPREOPT := false
+
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
 
 BOARD_SEPOLICY_DIRS += \
         $(LOCAL_PATH)/sepolicy
-
-# Disable DEXPREOPT
-WITH_DEXPREOPT := false

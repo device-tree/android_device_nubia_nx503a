@@ -14,11 +14,9 @@
 # limitations under the License.
 #
 
-# Languages Pack
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
-# Vendor
-$(call inherit-product-if-exists, vendor/zte/nx503a/nx503a-vendor.mk)
+$(call inherit-product-if-exists, vendor/nubia/nx503a/nx503a-vendor.mk)
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
@@ -65,19 +63,13 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Bluetooth
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
-
-
-    
+ 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1080
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-# WiFi
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
-    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
@@ -108,12 +100,9 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     libxml2 \
-    camera.msm8974
+    camera.msm8974 \
+    Camera2
 
-# WiFi
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/nvram.txt:system/etc/firmware/bcm4339/nvram.txt
-    
 # Connectivity Engine support
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
@@ -157,6 +146,10 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio \
     qcom.fmradio.xml
+    
+# GPS
+PRODUCT_PACKAGES += \
+    gps.msm8974
 
 # keyhandler
 PRODUCT_PACKAGES += \
@@ -178,23 +171,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lights.msm8974
 
-# Flp
-#PRODUCT_PACKAGES += \
-#    flp.default
-    
-# Consummer
-#PRODUCT_PACKAGES += \
-#    consumerir.msm8974
-
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8974
-
-# Vibrator
-PRODUCT_PACKAGES += \
-    vibrator.default
-
-
 # Media
 PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
@@ -203,6 +179,16 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/etc/media_codecs.xml:system/etc/media_codecs.xml \
     $(LOCAL_PATH)/etc/media_profiles.xml:system/etc/media_profiles.xml
 
+# Vibrator
+PRODUCT_PACKAGES += \
+    vibrator.default
+
+# WiFi
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/etc/wifi/p2p_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/etc/wifi/wpa_supplicant.conf \
+    $(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/etc/wifi/wpa_supplicant_overlay.conf \
+    $(LOCAL_PATH)/wifi/nvram.txt:system/etc/firmware/bcm4339/nvram.txt
       
 # country for infrared
 PRODUCT_COPY_FILES += \
@@ -270,7 +256,6 @@ PRODUCT_PACKAGES += \
     regulatory.bin \
     linville.key.pub.pem
 
-
 PRODUCT_PACKAGES += \
 	dhcpcd.conf \
 	hostapd \
@@ -280,9 +265,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
     wpa_supplicant_overlay.conf 
+
 PRODUCT_PROPERTY_OVERRIDES += \
-	wifi.interface=wlan0 \
-	wifi.supplicant_scan_interval=15 \
+    wifi.interface=wlan0 \
+    wifi.supplicant_scan_interval=15 \
     ro.sys.umsdirtyratio=20
     
 # ANT+
@@ -319,10 +305,13 @@ PRODUCT_PACKAGES += \
     LatinIME \
     libjni_latinime
 
-# etc
+# GPS configuration
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/etc/flp.conf:system/etc/flp.conf \
-    $(LOCAL_PATH)/etc/gps.conf:system/etc/gps.conf \
+    $(LOCAL_PATH)/etc/gps.conf:system/etc/gps.conf
+    
+# etc
+PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/etc/hcidump.sh:system/etc/hcidump.sh \
     $(LOCAL_PATH)/etc/hsic.control.bt.sh:system/etc/hsic.control.bt.sh \
     $(LOCAL_PATH)/etc/init.ath3k.bt.sh:system/etc/init.ath3k.bt.sh \

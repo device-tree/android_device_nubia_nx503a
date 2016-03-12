@@ -1,0 +1,14 @@
+
+project build/
+diff --git a/build/core/Makefile b/build/core/Makefile
+index 9ab196a..d5d47d6 100644
+--- a/build/core/Makefile
++++ b/build/core/Makefile
+@@ -1726,7 +1726,6 @@ $(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)
+ 	@echo -e ${CL_YLW}"Package OTA:"${CL_RST}" $@"
+ 	$(hide) MKBOOTIMG=$(MKBOOTIMG) \
+ 	   $(OTA_FROM_TARGET_SCRIPT) -v \
+-	   --block \
+ 	   $(if $(WITH_LZMA_OTA), -z) \
+ 	   -p $(HOST_OUT) \
+ 	   -k $(KEY_CERT_PAIR) \
