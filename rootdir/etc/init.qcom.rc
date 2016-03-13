@@ -528,6 +528,10 @@ on post-fs-data
     chmod 0644 /sys/class/timed_output/vibrator/vtg_max
     chmod 0644 /sys/class/timed_output/vibrator/vtg_min
 
+    # Key disabler
+    chown system system /sys/devices/gpio_keys.85/disabled_keys
+    chmod 0666 /sys/devices/gpio_keys.85/disabled_keys
+
 # Export GPIO56 for fusion targets to enable/disable hub
 service usbhub_init /system/bin/usbhub_init
    class late_start
