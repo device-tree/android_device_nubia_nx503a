@@ -68,7 +68,6 @@ TARGET_CPU_VARIANT := krait
 #ARCH_ARM_HAVE_NEON := true
 #ARCH_ARM_HAVE_TLS_REGISTER := true
 #ARCH_ARM_HAVE_VFP := true
-TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon-vfpv4 -mfloat-abi=softfp
