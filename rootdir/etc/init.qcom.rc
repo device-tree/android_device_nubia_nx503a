@@ -184,11 +184,6 @@ on boot
     chown system system /dev/drv2605
     chmod 0660 /dev/drv2605
 
-    #vibrator 
-    chown system system /sys/class/timed_output/vibrator/amp
-    chmod 0666 /sys/class/timed_output/vibrator/amp
-    write /sys/class/timed_output/vibrator/amp 30
-
     # display color calibration
     chown root system /sys/devices/platform/kcal_ctrl.0/kcal
     chown root system /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
@@ -520,13 +515,6 @@ on post-fs-data
 
     #Grant access to system UID for SMSC HUB sysfs entry
     chown system system /sys/bus/platform/devices/msm_smsc_hub/enable
-
-    chown system system /sys/class/timed_output/vibrator/vtg_level
-    chown system system /sys/class/timed_output/vibrator/vtg_max
-    chown system system /sys/class/timed_output/vibrator/vtg_min
-    chmod 0644 /sys/class/timed_output/vibrator/vtg_level
-    chmod 0644 /sys/class/timed_output/vibrator/vtg_max
-    chmod 0644 /sys/class/timed_output/vibrator/vtg_min
 
     # Key disabler
     chown system system /sys/devices/gpio_keys.85/disabled_keys
