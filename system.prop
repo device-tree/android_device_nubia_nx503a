@@ -30,9 +30,6 @@ DEVICE_PROVISIONED=1
 # Start in global mode
 ro.telephony.default_cdma_sub=0
 ro.telephony.default_network=21
-#added by wanghaiqing 2014/04/17  card2 defaultnetwork
-ro.telephony.default_network_1=1
-#added end
 debug.sf.hw=1
 debug.egl.hw=1
 debug.composition.type=c2d

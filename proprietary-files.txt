@@ -141,7 +141,6 @@ bin/radish
 bin/rfs_access
 bin/rmt_storage
 lib/libmdmdetect.so
-lib/libril.so
 lib/libreference-ril.so
 lib/librilutils.so
 etc/permissions/qcnvitems.xml
