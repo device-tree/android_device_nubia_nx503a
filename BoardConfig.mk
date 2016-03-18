@@ -152,9 +152,6 @@ TARGET_NO_RPC := true
 # Hardware tunables framework
 BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/cmhw/
 
-# Encryption
-TARGET_HW_DISK_ENCRYPTION := true
-
 # Lights
 TARGET_PROVIDES_LIBLIGHT := true
 
