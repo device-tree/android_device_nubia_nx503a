@@ -20,9 +20,6 @@ LOCAL_PATH := device/nubia/nx503a
 
 TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
-#Disable memcpy_base.S optimization
-TARGET_CPU_MEMCPY_BASE_OPT_DISABLE := true
-
 # QCRIL
 TARGET_RIL_VARIANT := caf
 SIM_COUNT := 1
