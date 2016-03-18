@@ -110,7 +110,6 @@ BOARD_BLUETOOTH_USES_HCIATTACH_PROPERTY := false
 BOARD_BLUEDROID_VENDOR_CONF := $(LOCAL_PATH)/bluetooth/libbt_vndcfg.txt
 
 # Graphics
-BOARD_EGL_CFG := $(LOCAL_PATH)/etc/egl.cfg
 USE_OPENGL_RENDERER := true
 TARGET_USES_ION := true
 OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
