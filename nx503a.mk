@@ -141,14 +141,6 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     resize2fs \
     setup_fs
-
-# FM
-PRODUCT_PACKAGES += \
-    FM2 \
-    FMRecord \
-    libqcomfm_jni \
-    qcom.fmradio \
-    qcom.fmradio.xml
     
 # GPS
 PRODUCT_PACKAGES += \
