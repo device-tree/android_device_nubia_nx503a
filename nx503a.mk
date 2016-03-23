@@ -56,17 +56,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
-#ADDITIONAL_DEFAULT_PROPERTIES += \
-#    ro.secure=0 \
-#    ro.adb.secure=0
-
 # Bluetooth
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
- 
-# Boot animation
-TARGET_SCREEN_HEIGHT := 1920
-TARGET_SCREEN_WIDTH := 1080
 
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
@@ -252,10 +244,10 @@ PRODUCT_PACKAGES += \
     linville.key.pub.pem
 
 PRODUCT_PACKAGES += \
-	dhcpcd.conf \
-	hostapd \
-	wpa_supplicant \
-	wpa_supplicant.conf
+    dhcpcd.conf \
+    hostapd \
+    wpa_supplicant \
+    wpa_supplicant.conf
 
 PRODUCT_PACKAGES += \
     p2p_supplicant_overlay.conf \
