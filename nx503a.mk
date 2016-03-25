@@ -378,6 +378,3 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase.yt=android-zte \
     audio.effect.name=dolby \
     persist.sys.singlehand=1
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=none
