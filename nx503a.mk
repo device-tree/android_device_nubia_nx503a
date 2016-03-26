@@ -130,10 +130,6 @@ PRODUCT_PACKAGES += \
     make_ext4fs \
     resize2fs \
     setup_fs
-    
-# GPS
-PRODUCT_PACKAGES += \
-    gps.msm8974
 
 # LOWI
 PRODUCT_COPY_FILES += \
