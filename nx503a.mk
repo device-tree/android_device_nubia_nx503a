@@ -366,7 +366,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.no_wait_for_card=1
 
-# Z5S
+# Z5S/H213
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.bluetooth.ftm_enabled=true \
     persist.factory.keypad_type=standard_with_camera_with_focus \
@@ -378,3 +378,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase.yt=android-zte \
     audio.effect.name=dolby \
     persist.sys.singlehand=1
+
+# GPS
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.qc.sdk.izat.premium_enabled=1 \
+    ro.qc.sdk.izat.service_mask=0x5 \
+    persist.gps.qc_nlp_in_use=1 \
+    persist.loc.nlp_name=com.qualcomm.services.location \
+    ro.gps.agps_provider=1
