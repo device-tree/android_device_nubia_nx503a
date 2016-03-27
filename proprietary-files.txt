@@ -99,7 +99,6 @@ lib/libmorpho_jpeg_io.so
 lib/libmorpho_memory_allocator.so
 lib/libmorpho_strobe_photo_jni.so
 
-
 # Graphics
 vendor/lib/egl/eglsubAndroid.so
 vendor/lib/egl/libEGL_adreno.so
@@ -130,8 +129,8 @@ bin/dun-server
 
 # Perf
 bin/mpdecision
-bin/perfd
 vendor/lib/libqti-perfd-client.so
+vendor/lib/libqc-opt.so
 
 # Qualcomm framework
 bin/irsc_util
