@@ -30,8 +30,6 @@
 on early-init
     mkdir /firmware 0771 system system
     symlink /data/tombstones /tombstones
-#ADD by wuzehui for the custom file-system
-    mkdir /custom 0755 radio radio
 
 on fs
     mount_all fstab.qcom
@@ -39,10 +37,6 @@ on fs
     mkdir /persist/data 0700 system system
     mkdir /persist/data/sfs 0700 system system
     mkdir /persist/data/tz 0700 system system
-
-#ADD by wuzehui for the custom file-system
-    wait /dev/block/platform/msm_sdcc.1/by-name/customfs
-    mount ext4 /dev/block/platform/msm_sdcc.1/by-name/customfs /custom nosuid nodev barrier=1
      
     chown system radio /dev/block/platform/msm_sdcc.1/by-name
     chmod 0775 /dev/block/platform/msm_sdcc.1/by-name
@@ -59,12 +53,6 @@ on post-fs-data
     mkdir /tombstones/lpass 0771 system system
     mkdir /tombstones/wcnss 0771 system system
     mkdir /tombstones/dsps 0771 system system
-#ADD by wuzehui for the custom file-system
-    chown radio radio /custom
-    chown radio radio /custom/poweron_animation
-    chown radio radio /custom/poweroff_animation
-    chown radio radio /custom/poweron_ring
-    chown radio radio /custom/poweroff_ring
 
 on boot
     start imsqmidaemon
