@@ -177,14 +177,10 @@ PRODUCT_PACKAGES += \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxCore \
-    libOmxMux \
     libOmxEvrcEnc \
     libOmxQcelp13Enc \
     libOmxVdec \
-    libOmxVdecHevc \
     libOmxVenc \
-    libmm-omxcore \
-    libHevcSwDecoder \
     libstagefrighthw
 
 # Power
