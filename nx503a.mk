@@ -90,7 +90,8 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     libxml2 \
     camera.msm8974 \
-    Camera2
+    Camera2 \
+    Snap
 
 # Camera2 API
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
