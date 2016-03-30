@@ -538,7 +538,6 @@ vendor/lib/libTimeService.so
 #-app/Additional/Additional.apk
 
 # Bin
-bin/cnd
 bin/hvdcp
 bin/ims_rtp_daemon
 bin/imsdatadaemon
@@ -555,7 +554,6 @@ bin/uiautomator
 bin/tp_node.sh
 
 # Lib
-vendor/lib/libcneapiclient.so
 vendor/lib/libCommandSvc.so
 vendor/lib/lib-dplmedia.so
 vendor/lib/libFileMux.so
@@ -581,7 +579,5 @@ vendor/lib/libsubsystem_control.so
 vendor/lib/libtzdrmgenprov.so
 vendor/lib/libvendorconn.so
 vendor/lib/libxt_native.so
-
--lib/libcnefeatureconfig.so
 
 lib/modules/texfat.ko
