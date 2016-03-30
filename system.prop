@@ -93,9 +93,6 @@ bluetooth.hfp.client=1
 #persist.fuse_sdcard=true
 persist.fuse_sdcard=false
 
-# Storage
-ro.vold.primary_physical=true
-
 #
 #snapdragon value add features
 #
