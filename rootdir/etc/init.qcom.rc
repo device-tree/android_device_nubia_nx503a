@@ -507,10 +507,6 @@ on post-fs-data
     #Grant access to system UID for SMSC HUB sysfs entry
     chown system system /sys/bus/platform/devices/msm_smsc_hub/enable
 
-    # Key disabler
-    chown root system /sys/devices/gpio_keys.85/disabled_keys
-    chmod 0660 /sys/devices/gpio_keys.85/disabled_keys
-
 # Export GPIO56 for fusion targets to enable/disable hub
 service usbhub_init /system/bin/usbhub_init
    class late_start
