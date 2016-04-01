@@ -192,204 +192,97 @@ on boot
     write /proc/sys/net/ipv6/conf/rmnet_usb3/accept_ra 2
        
     
-#add the haptics sysfs permission
+    # add the haptics sysfs permission
     chown system system /dev/drv2605
     chmod 0660 /dev/drv2605
 
-    # display color calibration
-    chown root system /sys/devices/platform/kcal_ctrl.0/kcal
-    chown root system /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
-    chmod 0664 /sys/devices/platform/kcal_ctrl.0/kcal
-    chmod 0664 /sys/devices/platform/kcal_ctrl.0/kcal_ctrl
-
-    #torch-light 
+    # torch-light 
     chown system system /sys/class/leds/torch-light/brightness
     chmod 0666 /sys/class/leds/torch-light/brightness
 
-    #lcd-backlight 
+    # lcd-backlight 
     chown system system /sys/class/leds/lcd-backlight/max_brightness
     chmod 0666 /sys/class/leds/lcd-backlight/max_brightness
 
-	#button-backlight
-	chown root system /sys/class/leds/red/brightness
-	chmod 0666 /sys/class/leds/red/brightness
-	chown root system /sys/class/leds/red/max_brightness
-	chmod 0666 /sys/class/leds/red/max_brightness
-	chown root system /sys/class/leds/button-backlight/brightness
-	chmod 0666 /sys/class/leds/button-backlight/brightness
-	chown root system /sys/class/leds/button-backlight/max_brightness
-	chmod 0666 /sys/class/leds/button-backlight/max_brightness
-	
-	#lcd enhance
-	chown system system /sys/kernel/lcd_enhance/disptype
-	chmod 0666 /sys/kernel/lcd_enhance/disptype
-	
-	#doubletap2wake
-	chown system system  /sys/android_touch/dt2w
-	chmod 0666  /sys/android_touch/dt2w
-	chown system system  /sys/android_touch/dt2w_duration
-	chmod 0666  /sys/android_touch/dt2w_duration
-	
-	#sweep2wake
-	chown root system  /sys/android_touch/s2w_s2sonly
-	chmod 0666  /sys/android_touch/s2w_s2sonly
-	chown root system  /sys/android_touch/sweep2wake
-	chmod 0666  /sys/android_touch/sweep2wake
-	chown root system  /sys/android_touch/s2w_allow_stroke
-	chmod 0666  /sys/android_touch/s2w_allow_stroke
-	
-	
-	# faux sound
-	chown root system  /sys/kernel/sound_control_3/gpl_cam_mic_gain	
-	chown root system  /sys/kernel/sound_control_3/gpl_headphone_gain
-	chown root system  /sys/kernel/sound_control_3/gpl_headphone_pa_gain
-	chown root system  /sys/kernel/sound_control_3/gpl_mic_gain
-	chown root system  /sys/kernel/sound_control_3/gpl_speaker_gain
-	chown root system  /sys/kernel/sound_control_3/gpl_sound_control_version
-	chown root system  /sys/kernel/sound_control_3/gpl_sound_control_locked
-	
-	chmod 0666  /sys/kernel/sound_control_3/gpl_cam_mic_gain	
-	chmod 0666  /sys/kernel/sound_control_3/gpl_headphone_gain
-	chmod 0666  /sys/kernel/sound_control_3/gpl_headphone_pa_gain
-	chmod 0666  /sys/kernel/sound_control_3/gpl_mic_gain
-	chmod 0666  /sys/kernel/sound_control_3/gpl_speaker_gain
-	chmod 0666  /sys/kernel/sound_control_3/gpl_sound_control_version
-	chmod 0666  /sys/kernel/sound_control_3/gpl_sound_control_locked
-	
-	# gamma
-	chown root system  /sys/module/mdss_dsi_ctrl/kgamma_bn
-	chown root system  /sys/module/mdss_dsi_ctrl/kgamma_bp
-	chown root system  /sys/module/mdss_dsi_ctrl/kgamma_gn
-	chown root system  /sys/module/mdss_dsi_ctrl/kgamma_gp
-	chown root system  /sys/module/mdss_dsi_ctrl/kgamma_rn
-	chown root system  /sys/module/mdss_dsi_ctrl/kgamma_rp
-	chown root system  /sys/module/mdss_dsi_ctrl/kgamma_send
-	chown root system  /sys/module/mdss_dsi_ctrl/kgamma_w
-	
-	chmod 0666  /sys/module/mdss_dsi_ctrl/kgamma_bn	
-	chmod 0666  /sys/module/mdss_dsi_ctrl/kgamma_bp
-	chmod 0666  /sys/module/mdss_dsi_ctrl/kgamma_gn
-	chmod 0666  /sys/module/mdss_dsi_ctrl/kgamma_gp
-	chmod 0666  /sys/module/mdss_dsi_ctrl/kgamma_rn
-	chmod 0666  /sys/module/mdss_dsi_ctrl/kgamma_rp
-	chmod 0666  /sys/module/mdss_dsi_ctrl/kgamma_send
-	chmod 0666  /sys/module/mdss_dsi_ctrl/kgamma_w
-    
-	#ZTEMT add by luochangyang 2013.10.29
-	chown system system /sys/bus/ttsp4/devices/main_ttsp_core.cyttsp4_i2c_adapter/easy_wakeup_gesture
-	#ZTEMT END
-    
+    # button-backlight
+    chown root system /sys/class/leds/red/brightness
+    chmod 0666 /sys/class/leds/red/brightness
+    chown root system /sys/class/leds/red/max_brightness
+    chmod 0666 /sys/class/leds/red/max_brightness
+    chown root system /sys/class/leds/button-backlight/brightness
+    chmod 0666 /sys/class/leds/button-backlight/brightness
+    chown root system /sys/class/leds/button-backlight/max_brightness
+    chmod 0666 /sys/class/leds/button-backlight/max_brightness
+
     # Torch
     chown system camera /sys/class/leds/led:flash_torch/brightness
     chmod 0660 /sys/class/leds/led:flash_torch/brightness  
 
-
-# add the sensor sysfs permission
+    # add the sensor sysfs permission
     mkdir /persist/sensors 0775 system system
     write /persist/sensors/sensors_settings 1
     chown system system /persist/sensors/sensors_settings
     chmod 664 /persist/sensors/sensors_settings
-
-	#gesture
-    chown system system /sys/class/gesture/gesture/enable
-    chown system system /sys/class/gesture/gesture/gesture_offset_init
-    chown system system /sys/class/gesture/gesture/gesture_data_safe_range_max
-    chown system system /sys/class/gesture/gesture/gesture_data_safe_range_min
-	chown system system /sys/class/gesture/gesture/gesture_offset_cal
-	chown system system /sys/class/gesture/gesture/gesture_offset_cal_start
-	chown system system /sys/class/gesture/gesture/gesture_channel_data_max
-
-    chmod 0644 /sys/class/gesture/gesture/enable
-    chmod 0644 /sys/class/gesture/gesture/gesture_offset_init
-    chmod 0644 /sys/class/gesture/gesture/gesture_data_safe_range_max
-    chmod 0644 /sys/class/gesture/gesture/gesture_data_safe_range_min
-	chmod 0644 /sys/class/gesture/gesture/gesture_offset_cal
-	chmod 0644 /sys/class/gesture/gesture/gesture_offset_cal_start
-	chmod 0644 /sys/class/gesture/gesture/gesture_channel_data_max
-
-	#hall_device
-    chown system system /sys/class/hall_device/hall_device/enable
-
-    chmod 0644 /sys/class/hall_device/hall_device/enable
     
-	#proximity
-	mkdir /persist/proxdata 0775 system system
-	chown system system /persist/proxdata
-	chmod 0775 /persist/proxdata
-	chown system system /sys/class/proximity/proximity/enable
-	chown system system /sys/class/proximity/proximity/prox_manual_calibrate_threshold
-	chown system system /sys/class/proximity/proximity/prox_init
-	chown system system /sys/class/proximity/proximity/prox_threshold_init
-	chown system system /sys/class/proximity/proximity/prox_offset_init
-	chown system system /sys/class/proximity/proximity/prox_thres
-	chown system system /sys/class/proximity/proximity/chip_name
-	chown system system /sys/class/proximity/proximity/prox_threshold_cal_start
-	chown system system /sys/class/proximity/proximity/prox_offset_cal_start
-	chown system system /sys/class/proximity/proximity/prox_offset_cal
-	chown system system /sys/class/proximity/proximity/prox_data_safe_range_max
-	chown system system /sys/class/proximity/proximity/prox_data_safe_range_min
-	chown system system /sys/class/proximity/proximity/prox_calibrate
-	chown system system /sys/class/proximity/proximity/prox_calibrate_start
-	chown system system /sys/class/proximity/proximity/prox_calibrate_result
-	chown system system /sys/class/proximity/proximity/prox_data_max
-	chown system system /sys/class/proximity/proximity/prox_debug
-	chown system system /sys/class/proximity/proximity/prox_thres_max
-	chown system system /sys/class/proximity/proximity/prox_thres_min
-	chown system system /sys/class/proximity/proximity/prox_threshold_high
-	chown system system /sys/class/proximity/proximity/prox_threshold_low
-	chown system system /sys/class/proximity/proximity/prox_thres_param_high
-	chown system system /sys/class/proximity/proximity/prox_thres_param_low
-	chown system system /sys/class/proximity/proximity/prox_pluse_length
-	chown system system /sys/class/proximity/proximity/prox_thres_pulse_count
-	chown system system /sys/class/proximity/proximity/prox_wakelock
-	chown system system /sys/class/proximity/proximity/prox_phone_is_sleep
+    # proximity
+    mkdir /persist/proxdata 0775 system system
+    chown system system /persist/proxdata
+    chmod 0775 /persist/proxdata
+    chown system system /sys/class/proximity/proximity/enable
+    chown system system /sys/class/proximity/proximity/prox_manual_calibrate_threshold
+    chown system system /sys/class/proximity/proximity/prox_init
+    chown system system /sys/class/proximity/proximity/prox_threshold_init
+    chown system system /sys/class/proximity/proximity/prox_offset_init
+    chown system system /sys/class/proximity/proximity/prox_thres
+    chown system system /sys/class/proximity/proximity/chip_name
+    chown system system /sys/class/proximity/proximity/prox_threshold_cal_start
+    chown system system /sys/class/proximity/proximity/prox_offset_cal_start
+    chown system system /sys/class/proximity/proximity/prox_offset_cal
+    chown system system /sys/class/proximity/proximity/prox_data_safe_range_max
+    chown system system /sys/class/proximity/proximity/prox_data_safe_range_min
+    chown system system /sys/class/proximity/proximity/prox_calibrate
+    chown system system /sys/class/proximity/proximity/prox_calibrate_start
+    chown system system /sys/class/proximity/proximity/prox_calibrate_result
+    chown system system /sys/class/proximity/proximity/prox_data_max
+    chown system system /sys/class/proximity/proximity/prox_debug
+    chown system system /sys/class/proximity/proximity/prox_thres_max
+    chown system system /sys/class/proximity/proximity/prox_thres_min
+    chown system system /sys/class/proximity/proximity/prox_threshold_high
+    chown system system /sys/class/proximity/proximity/prox_threshold_low
+    chown system system /sys/class/proximity/proximity/prox_thres_param_high
+    chown system system /sys/class/proximity/proximity/prox_thres_param_low
+    chown system system /sys/class/proximity/proximity/prox_pluse_length
+    chown system system /sys/class/proximity/proximity/prox_thres_pulse_count
+    chown system system /sys/class/proximity/proximity/prox_wakelock
+    chown system system /sys/class/proximity/proximity/prox_phone_is_sleep
+    chmod 0644 /sys/class/proximity/proximity/enable
+    chmod 0644 /sys/class/proximity/proximity/prox_manual_calibrate_threshold
+    chmod 0644 /sys/class/proximity/proximity/chip_name
+    chmod 0644 /sys/class/proximity/proximity/prox_threshold_cal_start
+    chmod 0644 /sys/class/proximity/proximity/prox_offset_cal_start
+    chmod 0644 /sys/class/proximity/proximity/prox_data_safe_range_max
+    chmod 0644 /sys/class/proximity/proximity/prox_data_safe_range_min
+    chmod 0644 /sys/class/proximity/proximity/prox_calibrate_start
+    chmod 0644 /sys/class/proximity/proximity/prox_calibrate_result
+    chmod 0644 /sys/class/proximity/proximity/prox_debug
+    chmod 0644 /sys/class/proximity/proximity/prox_thres_max
+    chmod 0644 /sys/class/proximity/proximity/prox_thres_min
+    chmod 0644 /sys/class/proximity/proximity/prox_threshold_high
+    chmod 0644 /sys/class/proximity/proximity/prox_threshold_low
+    chmod 0644 /sys/class/proximity/proximity/prox_pluse_length
+    chmod 0644 /sys/class/proximity/proximity/prox_thres_pulse_count
 
-	chmod 0644 /sys/class/proximity/proximity/enable
-	chmod 0644 /sys/class/proximity/proximity/prox_manual_calibrate_threshold
-	chmod 0644 /sys/class/proximity/proximity/chip_name
-	chmod 0644 /sys/class/proximity/proximity/prox_threshold_cal_start
-	chmod 0644 /sys/class/proximity/proximity/prox_offset_cal_start
-	chmod 0644 /sys/class/proximity/proximity/prox_data_safe_range_max
-	chmod 0644 /sys/class/proximity/proximity/prox_data_safe_range_min
-	chmod 0644 /sys/class/proximity/proximity/prox_calibrate_start
-	chmod 0644 /sys/class/proximity/proximity/prox_calibrate_result
-	chmod 0644 /sys/class/proximity/proximity/prox_debug
-	chmod 0644 /sys/class/proximity/proximity/prox_thres_max
-	chmod 0644 /sys/class/proximity/proximity/prox_thres_min
-	chmod 0644 /sys/class/proximity/proximity/prox_threshold_high
-	chmod 0644 /sys/class/proximity/proximity/prox_threshold_low
-	chmod 0644 /sys/class/proximity/proximity/prox_pluse_length
-	chmod 0644 /sys/class/proximity/proximity/prox_thres_pulse_count
-
-    
-	#light
+    # light
     chown system system /sys/class/light/light/enable
     chown system system /sys/class/light/light/delay
-
     chmod 0644 system system /sys/class/light/light/enable
     chmod 0644 system system /sys/class/light/light/delay
-    
-	chown system system /sys/class/leds/red/fade_parameter
-	chown system system /sys/class/leds/red/grade_parameter
-	chown system system /sys/class/leds/red/outn
-	chown system system /sys/class/leds/red/brightness	
+    chown system system /sys/class/leds/red/fade_parameter
+    chown system system /sys/class/leds/red/grade_parameter
+    chown system system /sys/class/leds/red/outn
+    chown system system /sys/class/leds/red/brightness	
 
-	#temperature
-    chown system system /sys/class/temperature/temperature/enable
-    chown system system /sys/class/temperature/temperature/temperature_poll_time
-
-    chmod 0644 system /sys/class/temperature/temperature/enable
-    chmod 0644 /sys/class/temperature/temperature/temperature_data
-
-
-	#humidity
-    chown system system /sys/class/humidity/humidity/enable
-    chown system system /sys/class/humidity/humidity/humidity_poll_time
-
-    chmod 0644 system /sys/class/humidity/humidity/enable
-    chmod 0644 /sys/class/humidity/humidity/humidity_data
-
-	#sensor_common
+    # sensor_common
     chown system system /sys/class/sensor/temp_humidity/raw_humidity
     chown system system /sys/class/sensor/temp_humidity/raw_temp
     
@@ -1031,15 +924,6 @@ on property:persist.sys.ssr.restart_level=3
     write /sys/bus/msm_subsys/devices/subsys2/restart_level related
     write /sys/bus/msm_subsys/devices/subsys3/restart_level related
 
-# ADDED BY ZTEMT ZhuBing
-# add the gesture on/off init.rc
-on property:persist.sys.gesture=on
-    write /sys/class/gesture/gesture/enable  1
-    
-on property:persist.sys.gesture=off
-    write /sys/class/gesture/gesture/enable  0
-# ADDED BY ZTEMT ZhuBing END
-
 #/* ZTEMT START */
 # Disable download mode when kernel panic
 on property:persist.sys.ap.restart_level=0
@@ -1138,20 +1022,6 @@ on property:persist.service.btcmd=1
 
 on property:persist.service.btcmd=0
     stop  btCommand
-
-# ADDED BY ZTEMT ZhuBing
-# start gesture process
-service gesture /system/bin/tmg3993
-    class main
-# ADDED BY ZTEMT ZhuBing END
-    
-# ZTEMT add by luochangyang 2014.02.11
-#This is for TP node.
-service tp_node /system/bin/sh /system/bin/tp_node.sh
-    class main
-    oneshot
-# ZTEMT END
-
 
 #ZTEMT ADD by mayu 2013-9-14 for lcd image enhance
 on property:persist.sys.image.enhance=w
