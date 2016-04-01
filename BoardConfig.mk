@@ -18,8 +18,6 @@
 
 LOCAL_PATH := device/nubia/nx503a
 
-TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
-
 # Assert
 TARGET_OTA_ASSERT_DEVICE := NX503A,nx503a,Z5S,z5s,NX503AJ,nx503aj,Z5SN,z5sn
 
