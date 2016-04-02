@@ -305,7 +305,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/etc/izat.conf:system/etc/izat.conf \
     $(LOCAL_PATH)/etc/permissions/android.hardware.sensor.compass.xml:system/etc/permissions/android.hardware.sensor.compass.xml \
     $(LOCAL_PATH)/etc/permissions/com.qualcomm.location.xml:system/etc/permissions/com.qualcomm.location.xml \
-    $(LOCAL_PATH)/etc/qca6234-service.sh:system/etc/qca6234-service.sh \
     $(LOCAL_PATH)/etc/quipc.conf:system/etc/quipc.conf \
     $(LOCAL_PATH)/etc/sap.conf:system/etc/sap.conf \
     $(LOCAL_PATH)/etc/sensor_def_qcomdev.conf:system/etc/sensor_def_qcomdev.conf \
