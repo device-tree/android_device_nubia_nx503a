@@ -200,9 +200,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     power.qcom
 
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/etc/powerprofile.sh:system/bin/powerprofile.sh
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     fstab.qcom \
